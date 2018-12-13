@@ -3,11 +3,14 @@ import { Client } from "./State/demo";
 import { Listener } from "./Observer/listener";
 import { Publisher } from "./Observer/publisher";
 import { Invoker } from "./Command/demo";
+import { Person } from "./Strategy/demo";
+import { Running, Basketball, Swimming } from "./Strategy/Sports";
 
 chainOfResponsability();
 state();
 observer();
 command();
+strategy();
 
 function chainOfResponsability() {
     console.log('Chain Of Responsability');
@@ -45,4 +48,16 @@ function command() {
     console.log('\nCommand');
     const invoker = new Invoker();
     invoker.main();
+}
+
+function strategy() {
+    console.log('\nStrategy');
+    const amanda = new Person('Amanda', new Running())
+        amanda.workout();
+
+        const michael = new Person('Michael', new Basketball())
+        michael.workout();
+
+        const sten = new Person('Sten', new Swimming())
+        sten.workout();
 }

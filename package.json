@@ -1,0 +1,20 @@
+{
+  "name": "ipp3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cls && tsc index.ts && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarpediana/Ipp3.git"
+  },
+  "author": "Diana Sarpe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarpediana/Ipp3/issues"
+  },
+  "homepage": "https://github.com/sarpediana/Ipp3#readme"
+}

@@ -2,10 +2,12 @@
 export abstract class Account {
 
     private successor: Account;
-    public balance ;
+    public balance;
+    public using: String;
 
-    public setNext(a: Account) {
+    public setNext(a: Account, b: String) {
         this.successor = a;
+        this.using = b;
     }
 
     public canPay(amount: number): boolean {
@@ -16,11 +18,10 @@ export abstract class Account {
     }
 
     public pay(amountToPay): void {
-        const instance = this;
         if (this.canPay(amountToPay)) {
-            console.log("Paid $" + amountToPay + " using " + Object.keys(instance.constructor())[0]);
+            console.log("Paid $" + amountToPay + " using " + this.using);
         } else if (this.getSucessor() != null) {
-            console.log("Cannot pay using " + Object.keys(instance.constructor()));
+            console.log("Cannot pay using " + this.using);
             this.getSucessor().pay(amountToPay);
         } else {
             console.log("None of the accounts have enough balance");

@@ -4,7 +4,7 @@ import { Bitcoin } from "./Bitcoin";
 
 
 const bank = new Bank();
-bank.Bank(150);
+bank.Bank(400);
 
 const payPal = new PayPal();
 payPal.PayPal(200);
@@ -12,9 +12,11 @@ payPal.PayPal(200);
 const bitcoin = new Bitcoin();
 bitcoin.Bitcoin(300);
 
-bank.setNext(payPal);
-payPal.setNext(bitcoin);
+bank.setNext(payPal, 'payPal');
+payPal.setNext(bitcoin, 'bitcoin');
+bitcoin.setNext(bank, 'bank');
 
 
-bank.pay(390);
-payPal.pay(390);
+bank.pay(110);
+payPal.pay(120);
+bitcoin.pay(500);

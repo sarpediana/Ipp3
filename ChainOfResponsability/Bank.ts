@@ -1,4 +1,4 @@
-'use strict'
+
 import { Account } from "./Account";
 
 export class Bank extends Account {

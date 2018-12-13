@@ -2,10 +2,12 @@ import { Transaction } from "./ChainOfResponsability/Demo";
 import { Client } from "./State/demo";
 import { Listener } from "./Observer/listener";
 import { Publisher } from "./Observer/publisher";
+import { Invoker } from "./Command/demo";
 
 chainOfResponsability();
 state();
 observer();
+command();
 
 function chainOfResponsability() {
     console.log('Chain Of Responsability');
@@ -37,4 +39,10 @@ function observer() {
     chatRoom.unsubscribe(aliceToken);
 
     chatRoom.notify({ sender: 'Joe', message: 'Buy Alice' });
+}
+
+function command() {
+    console.log('\nCommand');
+    const invoker = new Invoker();
+    invoker.main();
 }

@@ -1,46 +1,7 @@
-export interface Command {
-    execute(): void;
-}
-
-export interface Receive {
-    action(): void;
-}
-
-export interface Invoke {
-    runCommand(command?: Command): void;
-}
-
-export class CommandReceiver implements Receive {
-    action(): void {
-        console.log('Receiver takes action');
-    }
-}
-
-export class LaunchCommand implements Command {
-    private receiver: Receive;
-
-    constructor(receiver: Receive) {
-        this.receiver = receiver;
-    }
-
-    execute(): void {
-        console.log('Launch!!!');
-        this.receiver.action();
-    }
-}
-
-export class StopCommand implements Command {
-    private receiver: Receive;
-
-    constructor(receiver: Receive) {
-        this.receiver = receiver;
-    }
-
-    execute(): void {
-        console.log('Stop!!!');
-        this.receiver.action();
-    }
-}
+import { Command, Invoke } from "./interfaces";
+import { CommandReceiver } from "./CommandReceiver";
+import { LaunchCommand } from "./LaunchCommand";
+import { StopCommand } from "./StopCommand";
 
 export class Invoker implements Invoke {
     private commands: Command[];
